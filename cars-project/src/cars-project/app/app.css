@@ -1,0 +1,23 @@
+body {
+    background: lightskyblue;
+}
+
+.page-container {
+    max-width: 1200px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 40px 10px;
+}
+
+.search-filter-block {
+    box-sizing: border-box;
+    width: 100%;
+    background: #0a91e4;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    margin: 0 0 20px;
+}

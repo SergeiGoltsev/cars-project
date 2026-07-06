@@ -1,0 +1,62 @@
+.filter-buttons {
+    width: 100%;
+    display: flex;
+}
+
+.filter-button {
+    width: 100%;
+    padding: 5px 10px;
+    border-radius: 0;
+    border: 3px solid #fff;
+    border-right: none;
+    background: transparent;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+}
+
+.filter-button:first-of-type {
+    border-radius: 10px 0 0 10px;
+}
+
+.filter-button:last-of-type {
+    border-radius: 0 10px 10px 0;
+    border-right: 3px solid #fff;
+}
+
+.filter-button:hover {
+    background: #fff;
+    cursor: pointer;
+    color: #0a91e4;
+}
+
+.filter-button--active {
+    background: #fff;
+    cursor: default;
+    color: #0a91e4;
+}
+
+@media (max-width: 600px) {
+    .filter-buttons {
+        flex-direction: column;
+    }
+
+    .filter-button {
+        border: 3px solid #fff;
+        border-bottom: none;
+    }
+
+    .filter-button:first-of-type {
+        border-radius: 10px 10px 0 0;
+    }
+
+    .filter-button:last-of-type {
+        border-radius: 0 0 10px 10px;
+        border-bottom: 3px solid #fff;
+    }
+}

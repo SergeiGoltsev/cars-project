@@ -1,0 +1,36 @@
+.Info {
+    box-sizing: border-box;
+    width: 100%;
+    background: #0a91e4;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    margin: 0 0 20px;
+}
+
+.Info * {
+    box-sizing: border-box;
+}
+
+.Info__title {
+    color: #fff;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.Info__text {
+    color: #fff;
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+@media (max-width: 500px) {
+    .Info__title {
+        width: 100%;
+        text-align: center;
+    }
+}
