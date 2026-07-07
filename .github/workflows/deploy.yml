@@ -2,7 +2,7 @@ name: Deploy React App
 
 on:
   push:
-    branches: [ "main" ] # Скрипт будет запускаться каждый раз, когда ты пушишь в ветку main
+    branches: [ "main" ]
 
 permissions:
   contents: read
@@ -12,6 +12,10 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        # 1. Говорим гитхабу выполнять все команды внутри папки с проектом
+        working-directory: ./cars-project 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -19,21 +23,21 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20 # Указываем современную версию Node.js
-          cache: 'npm'
+          node-version: 20
 
       - name: Install dependencies
-        run: npm ci # Чистая установка библиотек без изменения package-lock.json
+        run: npm install # Используем обычный install для надежности
 
       - name: Build project
         run: npm run build
         env:
-          PUBLIC_URL: './' # Помогает Реакту правильно находить пути к путям файлов на GitHub Pages
+          PUBLIC_URL: './'
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./build # Если ты используешь Vite, замени слово build на dist
+          # 2. Указываем правильный путь к готовой сборке
+          path: ./cars-project/build 
 
       - name: Deploy to GitHub Pages
         id: deployment
